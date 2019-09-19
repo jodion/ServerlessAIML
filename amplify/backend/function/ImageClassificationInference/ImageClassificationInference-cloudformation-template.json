@@ -4,6 +4,10 @@
 	"Parameters": {
 		"env": {
 			"Type": "String"
+		},
+		"storagestorageBucketName": {
+			"Type": "String",
+			"Default": "storagestorageBucketName"
 		}
 	},
 	"Conditions": {
@@ -28,12 +32,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"InferenceFunction",
+						"ImageClassificationInference",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"InferenceFunction",
+									"ImageClassificationInference",
 									"-",
 									{
 										"Ref": "env"
@@ -50,6 +54,9 @@
 						},
 						"REGION": {
 							"Ref": "AWS::Region"
+						},
+						"STORAGE_STORAGE_BUCKETNAME": {
+							"Ref": "storagestorageBucketName"
 						}
 					}
 				},
@@ -62,8 +69,8 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "serverless-ai-ml-master-20190918202752-deployment",
-					"S3Key": "amplify-builds/InferenceFunction-427447784a3164323442-build.zip"
+					"S3Bucket": "serverless-ai-ml-prod-20190919074948-deployment",
+					"S3Key": "amplify-builds/ImageClassificationInference-6a66306d4462346e4b66-build.zip"
 				}
 			}
 		},
@@ -73,12 +80,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"serverlessaimlLambdaRole2fc13c48",
+						"serverlessaimlLambdaRole845d3d9b",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"serverlessaimlLambdaRole2fc13c48",
+									"serverlessaimlLambdaRole845d3d9b",
 									"-",
 									{
 										"Ref": "env"
@@ -144,6 +151,51 @@
 									}
 								]
 							}
+						}
+					]
+				}
+			}
+		},
+		"AmplifyResourcesPolicy": {
+			"DependsOn": [
+				"LambdaExecutionRole"
+			],
+			"Type": "AWS::IAM::Policy",
+			"Properties": {
+				"PolicyName": "amplify-lambda-execution-policy",
+				"Roles": [
+					{
+						"Ref": "LambdaExecutionRole"
+					}
+				],
+				"PolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Effect": "Allow",
+							"Action": [
+								"s3:GetObject",
+								"s3:ListBucket"
+							],
+							"Resource": [
+								{
+									"Fn::Join": [
+										"",
+										[
+											"arn:aws:s3:::",
+											{
+												"Ref": "storagestorageBucketName"
+											},
+											"/*"
+										]
+									]
+								}
+							]
+						},
+						{
+							"Effect": "Allow",
+							"Action": "sagemaker:InvokeEndpoint",
+							"Resource": "*"
 						}
 					]
 				}

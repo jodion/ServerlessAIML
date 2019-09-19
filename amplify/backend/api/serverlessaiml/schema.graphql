@@ -1,9 +1,8 @@
-
 type Query {
-    getInference: ClassificationResult @function(name: "InferenceFunction-${env}")
+    getInference: ClassificationResult @function(name: "ImageClassificationInference-${env}")
 }
 
-type ClassificationResult @model {
+type ClassificationResult {
   class: String!,
   confidence: Float!
 }

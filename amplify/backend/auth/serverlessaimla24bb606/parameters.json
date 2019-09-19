@@ -1,9 +1,8 @@
 {
-    "identityPoolName": "serverlessaimlc39bb043_identitypool_c39bb043",
-    "allowUnauthenticatedIdentities": false,
-    "openIdLambdaRoleName": "serverc39bb043_openid_lambda_role",
-    "resourceNameTruncated": "serverc39bb043",
-    "userPoolName": "serverlessaimlc39bb043_userpool_c39bb043",
+    "identityPoolName": "serverlessaimla24bb606_identitypool_a24bb606",
+    "allowUnauthenticatedIdentities": true,
+    "resourceNameTruncated": "servera24bb606",
+    "userPoolName": "serverlessaimla24bb606_userpool_a24bb606",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -21,7 +20,6 @@
     "requiredAttributes": [
         "email"
     ],
-    "userpoolClientName": "serverc39bb043_app_client",
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
@@ -30,17 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "mfaLambdaRole": "serverc39bb043_totp_lambda_role",
-    "userpoolClientLambdaRole": "serverc39bb043_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "servera24bb606_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "serverlessaimlc39bb043",
+    "resourceName": "serverlessaimla24bb606",
     "authSelections": "identityPoolAndUserPool",
-    "authRoleName": {
-        "Ref": "AuthRoleName"
-    },
-    "unauthRoleName": {
-        "Ref": "UnauthRoleName"
-    },
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -54,6 +45,5 @@
         ]
     },
     "useDefault": "default",
-    "additionalQuestions": [],
     "dependsOn": []
 }

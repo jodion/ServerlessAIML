@@ -1,15 +1,31 @@
 {
-	"function": {
-		"InferenceFunction": {
-			"service": "Lambda",
+	"auth": {
+		"serverlessaimla24bb606": {
+			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
-			"build": true
+			"dependsOn": []
 		}
 	},
-	"auth": {
-		"serverlessaimlc39bb043": {
-			"service": "Cognito",
+	"storage": {
+		"storage": {
+			"service": "S3",
 			"providerPlugin": "awscloudformation"
+		}
+	},
+	"function": {
+		"ImageClassificationInference": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "storage",
+					"attributes": [
+						"BucketName"
+					]
+				}
+			]
 		}
 	},
 	"api": {
@@ -17,7 +33,16 @@
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {
-				"securityType": "API_KEY"
+				"authConfig": {
+					"additionalAuthenticationProviders": [],
+					"defaultAuthentication": {
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"description": "inference",
+							"apiKeyExpirationDays": 180
+						}
+					}
+				}
 			}
 		}
 	}

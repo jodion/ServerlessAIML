@@ -2,7 +2,7 @@ import React from 'react';
 import API, { graphqlOperation } from '@aws-amplify/api'
 import { getInference } from './graphql/queries'
 
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 
 import config from './aws-exports'
@@ -11,6 +11,8 @@ API.configure(config);
 async function generateInference() {
   const todo = { name: "Use AppSync", description: "Realtime and Offline" }
   await API.graphql(graphqlOperation(getInference, {}))
+  //console.log(results);
+  console.log('Hi');
 }
 
 function App() {

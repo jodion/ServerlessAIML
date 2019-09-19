@@ -8,28 +8,3 @@ export const getInference = `query GetInference {
   }
 }
 `;
-export const getClassificationResult = `query GetClassificationResult($id: ID!) {
-  getClassificationResult(id: $id) {
-    class
-    confidence
-  }
-}
-`;
-export const listClassificationResults = `query ListClassificationResults(
-  $filter: ModelClassificationResultFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listClassificationResults(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-  ) {
-    items {
-      class
-      confidence
-    }
-    nextToken
-  }
-}
-`;

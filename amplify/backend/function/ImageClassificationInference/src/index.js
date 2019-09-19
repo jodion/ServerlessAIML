@@ -1,3 +1,11 @@
+/* Amplify Params - DO NOT EDIT
+You can access the following resource attributes as environment variables from your Lambda function
+var environment = process.env.ENV
+var region = process.env.REGION
+var storageStorageBucketName = process.env.STORAGE_STORAGE_BUCKETNAME
+
+Amplify Params - DO NOT EDIT */
+
 const AWS = require('aws-sdk');
 const request = require('request').defaults({ encoding: null });
 const json = require('json');
@@ -39,6 +47,15 @@ exports.handler = function (event, context) { //eslint-disable-line
           context.done(null, result);
         }
       });
+
+      /*
+      const result = {
+        class: 'bathtub',
+        confidence: 0.9999999
+      };
+
+      context.done(null, result);
+      */
     }
   });
 };
