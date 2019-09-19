@@ -70,7 +70,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "serverless-ai-ml-prod-20190919074948-deployment",
-					"S3Key": "amplify-builds/ImageClassificationInference-6a66306d4462346e4b66-build.zip"
+					"S3Key": "amplify-builds/ImageClassificationInference-537661714c6c42543559-build.zip"
 				}
 			}
 		},

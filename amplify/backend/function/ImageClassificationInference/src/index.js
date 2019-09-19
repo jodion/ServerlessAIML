@@ -11,17 +11,27 @@ const request = require('request').defaults({ encoding: null });
 const json = require('json');
 
 const sagemakerruntime = new AWS.SageMakerRuntime();
+const s3 = new AWS.S3();
 
 exports.handler = function (event, context) { //eslint-disable-line
-  request.get('http://www.vision.caltech.edu/Image_Datasets/Caltech256/images/008.bathtub/008_0007.jpg', function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      let data = new Buffer(body);
+  console.log(event);
+  console.log(process.env);
+
+  const s3params = {
+    Bucket: process.env.STORAGE_STORAGE_BUCKETNAME || 'serverless-ai-mld69bf64cb70c445b913a4f46bf02be24-prod',
+    Key: 'public/' + event.arguments.key
+  };
+
+  console.log(s3params);
+
+  s3.getObject(s3params, function (err, data) {
+    if (!err) {
       console.log(data);
 
       const params = {
-        Body: data,
+        Body: data.Body,
         EndpointName: 'image-classification-2019-09-19-00-24-22-047',
-        ContentType: response.headers["content-type"],
+        ContentType: "image/jpeg",
         Accept: "application/json"
       };
 
@@ -47,15 +57,8 @@ exports.handler = function (event, context) { //eslint-disable-line
           context.done(null, result);
         }
       });
-
-      /*
-      const result = {
-        class: 'bathtub',
-        confidence: 0.9999999
-      };
-
-      context.done(null, result);
-      */
+    } else {
+      console.log(err);
     }
   });
 };

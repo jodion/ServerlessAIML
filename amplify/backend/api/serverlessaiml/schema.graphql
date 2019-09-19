@@ -1,5 +1,5 @@
 type Query {
-    getInference: ClassificationResult @function(name: "ImageClassificationInference-${env}")
+    getInference(key: String): ClassificationResult @function(name: "ImageClassificationInference-${env}")
 }
 
 type ClassificationResult {
