@@ -1,0 +1,4 @@
+{
+    "AppSyncApiName": "serverlessaiml",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST"
+}

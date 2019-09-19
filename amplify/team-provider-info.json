@@ -9,6 +9,11 @@
             "UnauthRoleName": "serverless-ai-ml-master-20190918202752-unauthRole",
             "StackName": "serverless-ai-ml-master-20190918202752",
             "StackId": "arn:aws:cloudformation:us-east-1:493833316326:stack/serverless-ai-ml-master-20190918202752/6375d940-da74-11e9-8642-12f81177eb92"
+        },
+        "categories": {
+            "auth": {
+                "serverlessaimlc39bb043": {}
+            }
         }
     }
 }

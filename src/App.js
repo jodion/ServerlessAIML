@@ -1,24 +1,22 @@
 import React from 'react';
+import API, { graphqlOperation } from '@aws-amplify/api'
+import { getInference } from './graphql/queries'
+
 import logo from './logo.svg';
 import './App.css';
+
+import config from './aws-exports'
+API.configure(config);
+
+async function generateInference() {
+  const todo = { name: "Use AppSync", description: "Realtime and Offline" }
+  await API.graphql(graphqlOperation(getInference, {}))
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={generateInference}>Get Inference</button>
     </div>
   );
 }

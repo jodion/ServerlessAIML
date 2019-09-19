@@ -1,0 +1,9 @@
+
+type Query {
+    getInference: ClassificationResult @function(name: "InferenceFunction-${env}")
+}
+
+type ClassificationResult @model {
+  class: String!,
+  confidence: Float!
+}
