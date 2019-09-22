@@ -42,12 +42,14 @@ function App() {
       <Container>
         <Jumbotron>
           <Row>
-            <Col md="4">
+            <Col md="4" className="logo">
               <img src={logo} alt="Logo" />
             </Col>
             <Col md="8">
               <h1>Serverless AI/ML on AWS</h1>
-              <p>This is a set of simple demo that showcases AWS AI services in a JS application.</p>
+              <p>This is a demo that showcases AWS AI and ML services in a JS application.</p>
+              <p>The application is built using the Amplify toolchain, and uses AWS AppSync for API services and Amazon Cognito for identity.</p>
+              <p>Additionally, it leverages services like Amazon Transcribe, Amazon Comprehend, Amazon Tranlate, Amazon Polly, and Amazon SageMaker to add intelligence around language and machine vision.</p>
             </Col>
           </Row>
         </Jumbotron>

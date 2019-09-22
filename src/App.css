@@ -34,9 +34,14 @@
   }
 }
 
+.logo {
+  text-align: center;
+}
+
 .jumbotron {
   background-color: #37475A;
   color: #FFFFFF;
+  text-align: left;
 }
 
 .btn-primary {
