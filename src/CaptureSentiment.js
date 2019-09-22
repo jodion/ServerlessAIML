@@ -12,7 +12,7 @@ function CaptureSentiment({ updateAlert }) {
     Predictions.interpret({
       text: {
         source: {
-          text: 'textToInterpret',
+          text: textToInterpret,
           language: 'en'
         },
         type: "ALL"
