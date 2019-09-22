@@ -11,6 +11,7 @@ import CaptureSentiment from './CaptureSentiment';
 import TextToSpeech from './TextToSpeech';
 
 import './App.css';
+import logo from './aws.png';
 
 import config from './aws-exports';
 
@@ -40,14 +41,21 @@ function App() {
     <div className="App">
       <Container>
         <Jumbotron>
-          <h1>Serverless AI/ML on AWS</h1>
-          <p>This is a set of simple demo that showcases AWS AI services in a JS application.</p>
+          <Row>
+            <Col md="4">
+              <img src={logo} alt="Logo" />
+            </Col>
+            <Col md="8">
+              <h1>Serverless AI/ML on AWS</h1>
+              <p>This is a set of simple demo that showcases AWS AI services in a JS application.</p>
+            </Col>
+          </Row>
         </Jumbotron>
         <Alert color={alertStyle} isOpen={alertVisible} toggle={alertDismissable ? onDismiss : null}>
           <p dangerouslySetInnerHTML={{ __html: alert }}></p>
         </Alert>
         <Row>
-          <Col xs="8">
+          <Col md="8">
             <Form>
               <FormGroup>
                 <Label for="transcribeResults"></Label>
@@ -55,21 +63,21 @@ function App() {
               </FormGroup>
             </Form>
             <Row>
-              <Col xs="3">
+              <Col xs="6" md="3">
                 <SpeechToText updateAlert={updateAlert} />
               </Col>
-              <Col xs="3">
+              <Col xs="6" md="3">
                 <CaptureSentiment updateAlert={updateAlert} />
               </Col>
-              <Col xs="3">
+              <Col md="3">
                 <TranslateText updateAlert={updateAlert} />
               </Col>
-              <Col xs="3">
+              <Col md="3">
                 <TextToSpeech updateAlert={updateAlert} />
               </Col>
             </Row>
           </Col>
-          <Col xs="4">
+          <Col md="4">
             <ImageUpload />
           </Col>
         </Row>

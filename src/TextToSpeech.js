@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
 import { Predictions } from 'aws-amplify';
 
 import './TextToSpeech.css';
@@ -37,23 +37,26 @@ function TextToSpeech({ updateAlert }) {
   }
 
   return (
-    <>
-      <Button id="start-button" onClick={speakText} color="primary" title="Speak Text">
-        Speak
+    <Row>
+      <Col xs="4" md="12">
+        <Button id="start-button" onClick={speakText} color="primary" title="Speak Text">
+          Speak
       </Button>
-      <Form>
-        <FormGroup>
-          <Label for="voiceSelection">Voice</Label>
-          <Input type="select" name="select" id="voiceSelection" onChange={changeVoice} value={voiceId}>
-            <option value="Joanna">Joanna (English)</option>
-            <option value="Matthew">Matthew (English)</option>
-            <option value="Chantal">Chantal (French)</option>
-            <option value="Hans">Hans (German)</option>
-            <option value="Mia">Mia (Spanish)</option>
-          </Input>
-        </FormGroup>
-      </Form>
-    </>
+      </Col>
+      <Col xs="8" md="12">
+        <Form>
+          <FormGroup>
+            <Input type="select" name="select" id="voiceSelection" onChange={changeVoice} value={voiceId}>
+              <option value="Joanna">Joanna (English)</option>
+              <option value="Matthew">Matthew (English)</option>
+              <option value="Chantal">Chantal (French)</option>
+              <option value="Hans">Hans (German)</option>
+              <option value="Mia">Mia (Spanish)</option>
+            </Input>
+          </FormGroup>
+        </Form>
+      </Col>
+    </Row>
   );
 }
 

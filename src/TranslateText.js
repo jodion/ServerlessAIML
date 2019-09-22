@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
 import { Predictions } from 'aws-amplify';
 
 import './TranslateText.css';
@@ -35,21 +35,24 @@ function TranslateText({ updateAlert }) {
   }
 
   return (
-    <>
-      <Button id="start-button" onClick={translateText} color="primary" title="Translate Text">
-        Translate
+    <Row>
+      <Col xs="4" md="12">
+        <Button id="start-button" onClick={translateText} color="primary" title="Translate Text">
+          Translate
       </Button>
-      <Form>
-        <FormGroup>
-          <Label for="voiceSelection">Voice</Label>
-          <Input type="select" name="select" id="languageSelection" onChange={changeLanguage} value={language}>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <option value="es">Spanish</option>
-          </Input>
-        </FormGroup>
-      </Form>
-    </>
+      </Col>
+      <Col xs="8" md="12">
+        <Form>
+          <FormGroup>
+            <Input type="select" name="select" id="languageSelection" onChange={changeLanguage} value={language}>
+              <option value="fr">French</option>
+              <option value="de">German</option>
+              <option value="es">Spanish</option>
+            </Input>
+          </FormGroup>
+        </Form>
+      </Col>
+    </Row>
   );
 }
 
