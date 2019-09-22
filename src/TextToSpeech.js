@@ -11,6 +11,15 @@ function TextToSpeech({ updateAlert }) {
     const textToSpeak = document.getElementById("transcribeResults").value;
     console.log(textToSpeak);
 
+    function unlockAudioContext(audioCtx) {
+      if (audioCtx.state !== 'suspended') return;
+      const b = document.body;
+      const events = ['touchstart', 'touchend', 'mousedown', 'keydown'];
+      events.forEach(e => b.addEventListener(e, unlock, false));
+      function unlock() { audioCtx.resume().then(clean); }
+      function clean() { events.forEach(e => b.removeEventListener(e, unlock)); }
+    }
+
     Predictions.convert({
       textToSpeech: {
         source: {
@@ -20,6 +29,7 @@ function TextToSpeech({ updateAlert }) {
       }
     }).then(result => {
       let AudioContext = window.AudioContext || window.webkitAudioContext;
+      unlockAudioContext(AudioContext);
       console.log({ AudioContext });
       const audioCtx = new AudioContext();
       const source = audioCtx.createBufferSource();
