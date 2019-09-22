@@ -29,9 +29,8 @@ function TextToSpeech({ updateAlert }) {
       }
     }).then(result => {
       let AudioContext = window.AudioContext || window.webkitAudioContext;
-      unlockAudioContext(AudioContext);
-      console.log({ AudioContext });
       const audioCtx = new AudioContext();
+      unlockAudioContext(audioCtx);
       const source = audioCtx.createBufferSource();
       audioCtx.decodeAudioData(result.audioStream, (buffer) => {
         source.buffer = buffer;
