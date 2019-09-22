@@ -57,6 +57,21 @@
 			"providerPlugin": "awscloudformation",
 			"service": "Transcribe",
 			"convertType": "transcription"
+		},
+		"interpretText59f0b5c1": {
+			"providerPlugin": "awscloudformation",
+			"service": "Comprehend",
+			"interpretType": "interpretText"
+		},
+		"translateTextd12b1947": {
+			"providerPlugin": "awscloudformation",
+			"service": "Translate",
+			"convertType": "translateText"
+		},
+		"speechGeneratore63fe89d": {
+			"providerPlugin": "awscloudformation",
+			"service": "Polly",
+			"convertType": "speechGenerator"
 		}
 	}
 }

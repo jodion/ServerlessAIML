@@ -12,7 +12,9 @@
         },
         "categories": {
             "auth": {
-                "serverlessaimla24bb606": {}
+                "serverlessaimla24bb606": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"1006641500300-torj7pfp7nrbl8ibkugcrpnggqdo59a3.apps.googleusercontent.com\",\"client_secret\":\"nmbfRfJOXHwYVAZYss_NWTPU\"}]"
+                }
             }
         }
     }
