@@ -1,0 +1,15 @@
+.camera {
+  margin-top: 25px;
+}
+
+video {
+  position: absolute;
+}
+
+canvas {
+  position: relative;
+}
+
+#fileUpload {
+  visibility: hidden;
+}

@@ -78,7 +78,7 @@ function App() {
             </Row>
           </Col>
           <Col md="4">
-            <ImageUpload />
+            <ImageUpload updateAlert={updateAlert} />
           </Col>
         </Row>
       </Container>
