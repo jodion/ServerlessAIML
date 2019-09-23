@@ -92,5 +92,11 @@ const federated = {
   google_client_id: '1006641500300-torj7pfp7nrbl8ibkugcrpnggqdo59a3.apps.googleusercontent.com'
 };
 
-export default withAuthenticator(App, true, [], federated);
+//export default withOAuth(App, true, [], federated);
 //export default App;
+export default withAuthenticator(App, {
+  // Render a sign out button once logged in
+  includeGreetings: true,
+  // display federation/social provider buttons 
+  federated: federated
+});

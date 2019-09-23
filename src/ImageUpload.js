@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container, Button, Row, Col, Input } from 'reactstrap';
+import { Button, Row, Col, Input } from 'reactstrap';
 import { Storage, API } from 'aws-amplify';
 import { graphqlOperation } from '@aws-amplify/api'
 import { getInference } from './graphql/queries'
@@ -68,8 +68,7 @@ function ImageUpload({ updateAlert }) {
 
       video.pause();
 
-      const data = canvas.toDataURL('image/png');
-      const file = canvas.toBlob((blob) => {
+      canvas.toBlob((blob) => {
         uploadFile('file', blob);
       });
     } else {
