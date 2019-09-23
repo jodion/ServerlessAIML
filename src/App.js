@@ -49,7 +49,7 @@ function App() {
               <h1>Serverless AI/ML on AWS</h1>
               <p>This is a demo that showcases AWS AI and ML services in a JS application.</p>
               <p>The application is built using the Amplify toolchain, and uses AWS AppSync for API services and Amazon Cognito for identity.</p>
-              <p>Additionally, it leverages services like Amazon Transcribe, Amazon Comprehend, Amazon Tranlate, Amazon Polly, and Amazon SageMaker to add intelligence around language and machine vision.</p>
+              <p>Additionally, it leverages services like Amazon Transcribe, Amazon Comprehend, Amazon Translate, Amazon Polly, and Amazon SageMaker to add intelligence around language and machine vision.</p>
             </Col>
           </Row>
         </Jumbotron>
@@ -88,15 +88,10 @@ function App() {
   );
 }
 
-const federated = {
-  google_client_id: '1006641500300-torj7pfp7nrbl8ibkugcrpnggqdo59a3.apps.googleusercontent.com'
-};
+// const federated = {
+//   google_client_id: '1006641500300-torj7pfp7nrbl8ibkugcrpnggqdo59a3.apps.googleusercontent.com'
+// };
 
 //export default withOAuth(App, true, [], federated);
 //export default App;
-export default withAuthenticator(App, {
-  // Render a sign out button once logged in
-  includeGreetings: true,
-  // display federation/social provider buttons 
-  federated: federated
-});
+export default withAuthenticator(App, true);

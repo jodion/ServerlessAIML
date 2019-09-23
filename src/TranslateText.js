@@ -30,6 +30,7 @@ function TranslateText({ updateAlert }) {
   }
 
   window.useNewText = function (text) {
+    console.log(text);
     document.getElementById('transcribeResults').value = text;
     updateAlert({ alert: '', visible: false });
   }
