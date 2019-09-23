@@ -98,10 +98,10 @@ Parameters:
   hostedUIProviderMeta:
     Type: String
               
-  oAuthMetadata:
+  hostedUIProviderCreds:
     Type: String
               
-  hostedUIProviderCreds:
+  oAuthMetadata:
     Type: String
             
 Conditions:

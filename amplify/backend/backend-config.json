@@ -1,77 +1,77 @@
 {
-	"auth": {
-		"serverlessaimla24bb606": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": []
-		}
-	},
-	"storage": {
-		"storage": {
-			"service": "S3",
-			"providerPlugin": "awscloudformation"
-		}
-	},
-	"function": {
-		"ImageClassificationInference": {
-			"service": "Lambda",
-			"providerPlugin": "awscloudformation",
-			"build": true,
-			"dependsOn": [
-				{
-					"category": "storage",
-					"resourceName": "storage",
-					"attributes": [
-						"BucketName"
-					]
-				}
-			]
-		}
-	},
-	"api": {
-		"serverlessaiml": {
-			"service": "AppSync",
-			"providerPlugin": "awscloudformation",
-			"output": {
-				"authConfig": {
-					"additionalAuthenticationProviders": [],
-					"defaultAuthentication": {
-						"authenticationType": "API_KEY",
-						"apiKeyConfig": {
-							"description": "inference",
-							"apiKeyExpirationDays": 180
-						}
-					}
-				}
-			}
-		}
-	},
-	"hosting": {
-		"S3AndCloudFront": {
-			"service": "S3AndCloudFront",
-			"providerPlugin": "awscloudformation"
-		}
-	},
-	"predictions": {
-		"transcription99913a1e": {
-			"providerPlugin": "awscloudformation",
-			"service": "Transcribe",
-			"convertType": "transcription"
-		},
-		"interpretText59f0b5c1": {
-			"providerPlugin": "awscloudformation",
-			"service": "Comprehend",
-			"interpretType": "interpretText"
-		},
-		"translateTextd12b1947": {
-			"providerPlugin": "awscloudformation",
-			"service": "Translate",
-			"convertType": "translateText"
-		},
-		"speechGeneratore63fe89d": {
-			"providerPlugin": "awscloudformation",
-			"service": "Polly",
-			"convertType": "speechGenerator"
-		}
-	}
+       "auth": {
+              "serverlessaimla24bb606": {
+                     "service": "Cognito",
+                     "providerPlugin": "awscloudformation",
+                     "dependsOn": []
+              }
+       },
+       "storage": {
+              "storage": {
+                     "service": "S3",
+                     "providerPlugin": "awscloudformation"
+              }
+       },
+       "function": {
+              "ImageClassificationInference": {
+                     "service": "Lambda",
+                     "providerPlugin": "awscloudformation",
+                     "build": true,
+                     "dependsOn": [
+                            {
+                                   "category": "storage",
+                                   "resourceName": "storage",
+                                   "attributes": [
+                                          "BucketName"
+                                   ]
+                            }
+                     ]
+              }
+       },
+       "api": {
+              "serverlessaiml": {
+                     "service": "AppSync",
+                     "providerPlugin": "awscloudformation",
+                     "output": {
+                            "authConfig": {
+                                   "additionalAuthenticationProviders": [],
+                                   "defaultAuthentication": {
+                                          "authenticationType": "API_KEY",
+                                          "apiKeyConfig": {
+                                                 "description": "inference",
+                                                 "apiKeyExpirationDays": 180
+                                          }
+                                   }
+                            }
+                     }
+              }
+       },
+       "hosting": {
+              "S3AndCloudFront": {
+                     "service": "S3AndCloudFront",
+                     "providerPlugin": "awscloudformation"
+              }
+       },
+       "predictions": {
+              "transcription99913a1e": {
+                     "providerPlugin": "awscloudformation",
+                     "service": "Transcribe",
+                     "convertType": "transcription"
+              },
+              "interpretText59f0b5c1": {
+                     "providerPlugin": "awscloudformation",
+                     "service": "Comprehend",
+                     "interpretType": "interpretText"
+              },
+              "translateTextd12b1947": {
+                     "providerPlugin": "awscloudformation",
+                     "service": "Translate",
+                     "convertType": "translateText"
+              },
+              "speechGeneratore63fe89d": {
+                     "providerPlugin": "awscloudformation",
+                     "service": "Polly",
+                     "convertType": "speechGenerator"
+              }
+       }
 }

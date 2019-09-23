@@ -17,5 +17,28 @@
                 }
             }
         }
+    },
+    "jon": {
+        "awscloudformation": {
+            "AuthRoleName": "serverless-ai-ml-jon-20190923000614-authRole",
+            "UnauthRoleArn": "arn:aws:iam::761424745283:role/serverless-ai-ml-jon-20190923000614-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::761424745283:role/serverless-ai-ml-jon-20190923000614-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "serverless-ai-ml-jon-20190923000614-deployment",
+            "UnauthRoleName": "serverless-ai-ml-jon-20190923000614-unauthRole",
+            "StackName": "serverless-ai-ml-jon-20190923000614",
+            "StackId": "arn:aws:cloudformation:us-east-2:761424745283:stack/serverless-ai-ml-jon-20190923000614/7c19a580-ddb7-11e9-bc02-0a6c486e9f90"
+        },
+        "categories": {
+            "auth": {
+                "serverlessaimla24bb606": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"1006641500300-torj7pfp7nrbl8ibkugcrpnggqdo59a3.apps.googleusercontent.com\",\"client_secret\":\"nmbfRfJOXHwYVAZYss_NWTPU\"}]"
+                }
+            },
+            "function": {
+                "ImageClassificationInference": {},
+                "storage": {}
+            }
+        }
     }
 }
