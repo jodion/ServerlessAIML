@@ -9,7 +9,6 @@ function TextToSpeech({ updateAlert }) {
 
   const speakText = () => {
     const textToSpeak = document.getElementById("transcribeResults").value;
-    console.log(textToSpeak);
 
     function unlockAudioContext(audioCtx) {
       if (audioCtx.state !== 'suspended') return;

@@ -7,7 +7,6 @@ import './CaptureSentiment.css';
 function CaptureSentiment({ updateAlert }) {
   const interpretText = () => {
     const textToInterpret = document.getElementById("transcribeResults").value;
-    console.log(textToInterpret);
 
     Predictions.interpret({
       text: {
@@ -18,7 +17,6 @@ function CaptureSentiment({ updateAlert }) {
         type: "ALL"
       }
     }).then(result => {
-      console.log(JSON.stringify(result, null, 2));
       updateAlert({ alert: JSON.stringify(result, null, 2), visible: true, dismissable: true });
     }).catch(err => console.log(JSON.stringify(err, null, 2)))
   }

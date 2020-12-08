@@ -101,10 +101,8 @@ function ImageUpload({ updateAlert }) {
   }
 
   const uploadFile = (name, file) => {
-    console.log(name, file);
     Storage.put(name, file).then((object) => {
       API.graphql(graphqlOperation(getInference, object)).then((results) => {
-        console.log(results);
         updateAlert({ alert: results.data.getInference.class + ' (' + results.data.getInference.confidence + ')', visible: true, dismissable: true });
       });
     })

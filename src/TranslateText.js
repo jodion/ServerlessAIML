@@ -9,7 +9,6 @@ function TranslateText({ updateAlert }) {
 
   const translateText = () => {
     const textToTranslate = document.getElementById("transcribeResults").value;
-    console.log(textToTranslate);
 
     Predictions.convert({
       translateText: {
@@ -19,7 +18,6 @@ function TranslateText({ updateAlert }) {
         targetLanguage: language
       }
     }).then(result => {
-      console.log(JSON.stringify(result, null, 2));
       const alertMsg = `${result.text} <a href="#" onClick="useNewText('${result.text.replace(/'/g, "\\'")}')" className="alert-link">[Use this text]</a>`;
       updateAlert({ alert: alertMsg, visible: true, dismissable: true });
     }).catch(err => console.log(JSON.stringify(err, null, 2)))
